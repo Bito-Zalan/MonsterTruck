@@ -17,11 +17,14 @@ public class MonsterTruckOrai extends javax.swing.JFrame {
      */
     public MonsterTruckOrai() {
         initComponents();
-        int felnottar = 4990;
-        int diakar = 2990;
+        btnFoglalas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
 
+            }
+        });
     }
 
+    // ... (A meglévő initComponents metódus tartalmát itt hagyd érintetlenül)
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,16 +36,16 @@ public class MonsterTruckOrai extends javax.swing.JFrame {
 
         jLabel16 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lblArak = new javax.swing.JLabel();
+        lblFelnottArTabla = new javax.swing.JLabel();
+        lblDiakArTabla = new javax.swing.JLabel();
+        lblFelnottAr = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        lblDiakAr = new javax.swing.JLabel();
         lbl6eves = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        lblJegyvasarlas = new javax.swing.JLabel();
+        lblFelnottDb = new javax.swing.JLabel();
+        lblDiakDb = new javax.swing.JLabel();
         spinnerFelnottDb = new javax.swing.JSpinner();
         spinnerDiakDb = new javax.swing.JSpinner();
         lblOsszesen = new javax.swing.JLabel();
@@ -50,35 +53,37 @@ public class MonsterTruckOrai extends javax.swing.JFrame {
         lblOsszArFt = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnFoglalas = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
 
-        jLabel16.setIcon(new javax.swing.ImageIcon("C:\\Users\\BitóZalánSándor(SZOF\\Desktop\\képkész.png")); // NOI18N
         jLabel16.setText("jLabel16");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 0));
 
         jLabel1.setFont(new java.awt.Font("Viner Hand ITC", 1, 18)); // NOI18N
         jLabel1.setText("Monster Truck");
 
-        jLabel2.setText("Árak:");
+        lblArak.setText("Árak:");
 
-        jLabel3.setText("Felnőtt:");
+        lblFelnottArTabla.setText("Felnőtt:");
 
-        jLabel4.setText("Diák:");
+        lblDiakArTabla.setText("Diák:");
 
-        jLabel5.setText("4990");
+        lblFelnottAr.setText("4990");
 
         jLabel6.setText("Ft");
 
-        jLabel7.setText("2990");
+        lblDiakAr.setText("2990");
 
         lbl6eves.setText("6 éves kor alatt ingyenes.");
 
-        jLabel10.setText("Jegyvásárlás:");
+        lblJegyvasarlas.setText("Jegyvásárlás:");
 
-        jLabel11.setText("Felnőtt (db)");
+        lblFelnottDb.setText("Felnőtt (db)");
 
-        jLabel12.setText("Diák (db)");
+        lblDiakDb.setText("Diák (db)");
 
         spinnerFelnottDb.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
@@ -86,7 +91,7 @@ public class MonsterTruckOrai extends javax.swing.JFrame {
 
         lblOsszesen.setText("Összesen:");
 
-        lblOsszAr.setText("jLabel14");
+        lblOsszAr.setText("0");
 
         lblOsszArFt.setText("Ft");
 
@@ -95,7 +100,16 @@ public class MonsterTruckOrai extends javax.swing.JFrame {
 
         jLabel8.setText("Ft");
 
-        jButton1.setText("Vásárlás");
+        btnFoglalas.setText("Foglalás");
+        btnFoglalas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFoglalasActionPerformed(evt);
+            }
+        });
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alsó sor", "Középső sor", "Felső sor", " " }));
+
+        jLabel2.setText("  Ülőhely választása");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -103,55 +117,64 @@ public class MonsterTruckOrai extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(44, 44, 44)
-                .addComponent(jLabel2)
+                .addComponent(lblArak)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel10)
+                .addComponent(lblJegyvasarlas)
                 .addGap(50, 50, 50))
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblOsszAr, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3)
+                .addComponent(lblOsszArFt)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel4))
-                            .addGap(18, 18, 18)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel7))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(6, 6, 6)
-                                    .addComponent(jLabel6))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel8)))
-                            .addGap(80, 80, 80)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel11)
-                                .addComponent(jLabel12)
-                                .addComponent(lblOsszesen))
-                            .addGap(18, 18, 18)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(spinnerFelnottDb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(spinnerDiakDb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(lblOsszAr)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(lblOsszArFt))))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(6, 6, 6)
-                            .addComponent(lbl6eves))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(103, 103, 103)
-                            .addComponent(jLabel1))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(21, 21, 21)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(127, 127, 127)
-                        .addComponent(jButton1)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblFelnottArTabla)
+                                    .addComponent(lblDiakArTabla))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblFelnottAr)
+                                    .addComponent(lblDiakAr))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(6, 6, 6)
+                                                .addComponent(jLabel6))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel8)))
+                                        .addGap(80, 80, 80)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblFelnottDb)
+                                            .addComponent(lblDiakDb)
+                                            .addComponent(lblOsszesen)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addComponent(jLabel1))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(lbl6eves)))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(spinnerFelnottDb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(spinnerDiakDb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(122, 122, 122)
+                        .addComponent(btnFoglalas))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(108, 108, 108)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -161,49 +184,84 @@ public class MonsterTruckOrai extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel10))
+                    .addComponent(lblArak)
+                    .addComponent(lblJegyvasarlas))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(7, 7, 7)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel5)
+                                .addComponent(lblFelnottArTabla)
+                                .addComponent(lblFelnottAr)
                                 .addComponent(jLabel6))
-                            .addComponent(jLabel11)))
+                            .addComponent(lblFelnottDb)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(4, 4, 4)
                         .addComponent(spinnerFelnottDb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jLabel12)
+                    .addComponent(lblDiakDb)
                     .addComponent(spinnerDiakDb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel7)
+                    .addComponent(lblDiakArTabla)
+                    .addComponent(lblDiakAr)
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbl6eves)
-                    .addComponent(lblOsszesen)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblOsszAr)
-                        .addComponent(lblOsszArFt)))
+                        .addComponent(lblOsszAr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblOsszArFt))
+                    .addComponent(lbl6eves, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblOsszesen))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(btnFoglalas)
+                .addGap(18, 18, 18))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnFoglalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFoglalasActionPerformed
+        int felnottAr = 4990;
+        int diakAr = 2990;
+
+        int felnottDb = (int) spinnerFelnottDb.getValue();
+        int diakDb = (int) spinnerDiakDb.getValue();
+
+        int osszAr = felnottDb * felnottAr + diakDb * diakAr;
+
+        lblOsszAr.setText(String.valueOf(osszAr));
+        lblOsszArFt.setText("Ft");
+        
+        if (felnottDb == 0 && diakDb == 0) {
+            JOptionPane.showMessageDialog(this, "Nincs jegymennyiség kiválasztva!", "Hiba", JOptionPane.ERROR_MESSAGE);
+            return; // Ne folytassa tovább a kódot, mert nincs jegy kiválasztva.
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "Sikeres foglalás!\n A jegyek ára: " + osszAr);
+            
+        }
+
+        
+
+        
+    }//GEN-LAST:event_btnFoglalasActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            
+            public void run() {
+                new MonsterTruckOrai().setVisible(true);
+            }
+        });
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -228,29 +286,26 @@ public class MonsterTruckOrai extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MonsterTruckOrai().setVisible(true);
-            }
-        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnFoglalas;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel lbl6eves;
+    private javax.swing.JLabel lblArak;
+    private javax.swing.JLabel lblDiakAr;
+    private javax.swing.JLabel lblDiakArTabla;
+    private javax.swing.JLabel lblDiakDb;
+    private javax.swing.JLabel lblFelnottAr;
+    private javax.swing.JLabel lblFelnottArTabla;
+    private javax.swing.JLabel lblFelnottDb;
+    private javax.swing.JLabel lblJegyvasarlas;
     private javax.swing.JLabel lblOsszAr;
     private javax.swing.JLabel lblOsszArFt;
     private javax.swing.JLabel lblOsszesen;
